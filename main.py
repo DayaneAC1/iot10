@@ -1,34 +1,35 @@
 import socket
 import time
 
-HOST = ["192.168.1.177",
-        "192.168.1.178", 
+HOST = ["192.168.1.177", 
         "192.168.1.11", 
         "192.168.1.10", 
         "192.168.1.157", 
         "192.168.1.167",
         "192.168.1.105",
         "192.168.1.174",
-        "192.168.1.106"
+        "192.168.1.106",
+        "192.168.1.178",
+        "192.168.1.12"
         ]
 PORT =  5000
 
 MAX_TENTATIVAS = 30
-TIMEOUT = 9
+TIMEOUT = 10
 
 while True:
-    ip = int(input("Escolha de 1 à 9: "))
-    opcao = input("Escolha 1 para ligar ou 0 para desligar o LED, ou ultra para ultrassom: ")
+    ip = int(input("Escolha de 1 à 10: "))
+    opcao = input("Escolha 1 para ligar ou 0 para desligar o LED, ou distancia para ultrassom: ")
     
-    if ip > 5 :
+    if ip > 10 :
         print("Dispositivo Invalido! Programa Encerrado")
         break
     elif opcao == "1":
         msg = b"ligar\n"
     elif opcao == "0":
         msg = b"desligar\n"
-    elif opcao.lower() == "ultra":
-        msg = b"ultra\n"
+    elif opcao.lower() == "distancia":
+        msg = b"distancia\n"
     else:
         print("Opção Invalida! Programa Encerrado")
         break
